@@ -8,11 +8,7 @@ module.exports = function(app, isLoggedIn) {
       email: req.session.email
     });
   });
-
-  app.get('/*', function (req, res) {
-    res.render('index');
-  });
-
+ 
   app.get('/api/get_gifs', function (req, res){
     res.json({
       gifs:[
@@ -24,4 +20,9 @@ module.exports = function(app, isLoggedIn) {
       ]
     });
   });
+
+   app.get('/*', function (req, res) {
+    res.render('index');
+  });
+
 };

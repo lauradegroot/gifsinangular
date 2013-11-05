@@ -37,15 +37,17 @@ angular.module('pea.controllers', []).
   controller('GifsCtrl', function ($scope, $http, $rootScope) {
     $scope.gifs=[];
     console.log('gifs view');
+  
+    $http({
+        method:'GET',
+          url:'/api/get_gifs'
+      }).success(function(data){
+        $scope.gifs = data.gifs
+      }).error(function(err, data){
+        console.log('error getting gifs');
+    });
 
-    if($rootScope.isAuthenticated){
-      $http({
-          method:'GET',
-            url:'/api/get_gifs'
-        }).success(function(data){
-          $scope.gifs = data.gifs
-        }).error(function(err, data){
-          console.log('error getting gifs');
-      });
+    $scope.deletegif = function(){
+      console.log("click");
     }
   })
