@@ -47,7 +47,8 @@ angular.module('pea.controllers', []).
         console.log('error getting gifs');
     });
 
-    $scope.deletegif = function(){
+    $scope.deletegif = function(index){
       console.log("click");
+      $scope.gifs.splice(index, 1);
     }
   })
